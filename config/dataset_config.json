@@ -1,0 +1,92 @@
+{
+    "nuscenes" : {
+        "dataset_path"  : "datasets/nuscenes",
+        "resize_ratio": [
+            1.0,
+            1.0
+        ],
+        "extend_ratio": [
+            2.5,
+            2.5
+        ],
+        "pcd_min_samples": 8192,
+        "num_workers": 12,
+        "pooling_size": 7,
+        "max_deg" : 10,
+        "max_tran": 0.25,
+        "mag_randomly": false,
+        "val_perturb_file": "",
+        "test_perturb_file": "",
+        "distribution": "uniform",
+        "min_depth": 0,
+        "max_depth": 100,
+        "min_intensity": 0,
+        "max_intensity" : 100,
+        "num_neighbours": 30,
+        "image_size": [450,900]
+    },    
+
+    "kitti" : {
+        "dataset_path"  : "datasets/kitti/",
+        "resize_ratio": [
+            1.0,
+            1.0
+        ],
+        "extend_ratio": [
+            2.5,
+            2.5
+        ],
+        "train_sequences": ["01","02","03","04","05","06","07","14","15","16","17","18","19","20","08","09","10"],
+        "val_sequences" : ["00"],
+        "test_sequences" : ["00"],
+        "pcd_min_samples": 8192,
+        "num_workers": 12,
+        "pooling_size": 3,
+        "max_deg" : 1,
+        "max_tran": 0.1,
+        "mag_randomly": false,
+        "val_perturb_file": "",
+        "test_perturb_file": "",
+        "distribution": "uniform",
+        "min_depth": 0,
+        "max_depth": 80,
+        "min_intensity": 0,
+        "max_intensity" : 1,
+        "skip_frame": 1,
+        "cam_id": 2,
+        "image_size": [320, 512],
+        "num_neighbours": 40
+        },
+    
+    "kittiRaw" : {
+        "dataset_path"  : "datasets/kitti-raw/",
+        "resize_ratio": [
+            1.0,
+            1.0
+        ],
+        "extend_ratio": [
+            2.5,
+            2.5
+        ],
+        "train_sequences": ["2011_09_28", "2011_09_29", "2011_09_30", "2011_10_03"],
+        "val_sequences" : ["2011_09_26"],
+        "test_sequences" : ["2011_09_26"],
+        "pcd_min_samples": 8192,
+        "num_workers": 2,
+        "pooling_size": 3,
+        "max_deg" : 10,
+        "max_tran": 0.25,
+        "mag_randomly": false,
+        "val_perturb_file": "",
+        "test_perturb_file": "",
+        "distribution": "uniform",
+        "min_depth": 0,
+        "max_depth": 80,
+        "min_intensity": 0,
+        "max_intensity" : 1,
+        "skip_frame": 1,
+        "cam_id": 2,
+        "image_size" : [320, 512],
+        "num_neighbours": 40
+        }
+}

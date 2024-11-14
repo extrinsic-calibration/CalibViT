@@ -1,0 +1,3 @@
+# ninja log v5
+4	21849	1719753515556971535	/workspace/models/calibvit/swin_transformer/kernels/window_process/build/temp.linux-x86_64-3.9/swin_window_process.o	88d229a8eaeeefea
+5	62251	1719753555964581937	/workspace/models/calibvit/swin_transformer/kernels/window_process/build/temp.linux-x86_64-3.9/swin_window_process_kernel.o	a6f859debee6a76

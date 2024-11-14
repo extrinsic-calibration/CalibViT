@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calibration Benchmark</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding:0;
+            background-color: #1e1e1e; /* Dark Background */
+            color: #e0e0e0; /* Light Text */
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #282828;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 36px;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Main Content */
+        .content {
+            width: 80%; /* Use more screen width */
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #2a2a2a; /* Card Background */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 20px 0 10px;
+            color: #ff6f61;
+            text-align: left;
+        }
+
+        .block-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff6f61;
+            text-align: center;
+        }
+
+        /* Abstract Section */
+        .abstract {
+            background-color: #333333;
+            border-left: 5px solid #ff6f61;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+            font-style: italic;
+            font-size: 18px;
+        }
+
+        /* Video Styles */
+        .video-placeholder video {
+            width: 60%; /* Full width of container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Table Styles */
+        table {
+            border-collapse: collapse;
+            width: 100%; /* Full width */
+            margin: 30px 0;
+            color: #e0e0e0;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        th, td {
+            border: 1px solid #444444;
+            text-align: center;
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #3a3a3a;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #2f2f2f;
+        }
+
+        td:hover {
+            background-color: #444444;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 16px;
+            margin-top: 30px;
+            color: #777777;
+            padding: 10px 0;
+        }
+        a {   
+            color: inherit; /* Inherits the text color from its parent */
+            text-decoration: none; /* Removes the underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Optional: underline on hover for accessibility */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        Calibration Benchmark
+    </div>
+
+    <!-- CalibViT Section -->
+    <div class="content">
+        <div class="block-title" style="text-align: left;">CalibViT</div>
+        
+        <!-- Abstract Section -->
+        <div class="abstract">
+            <b>Abstract:</b> Sensor calibration for autonomous vehicles is commonly performed offline. However, continuous vibrations during operation lead to de-calibration, necessitating periodic correction. Transformer models, with their ability to capture long-range dependencies and global context, are particularly suited to capture long-range dependencies and global context from multi-modal data. We present CalibViT, an online calibration network that leverages the cross-attention mechanism to accurately and robustly estimate the extrinsic calibration matrix between the camera and LiDARs. We introduce two variants of our approach: CalibViT-v1, which employs a CNN backbone followed by a cross-attention block, and CalibViT-v2, which utilizes a Transformer backbone leveraging self-attention, followed by the cross-attention block. We evaluate our networks on NuScenes, KITTI Odometry, and TruckScenes datasets, demonstrating up to 7.4% improvement in rotation accuracy and 39.9% improvement in translation accuracy across diverse real-world scenarios.
+        </div>
+    
+        <!-- Video Placeholder -->
+        <div class="video-placeholder" align="center">
+            <video controls="" muted="" loop="" autoplay="">
+                <source src="https://github.com/user-attachments/assets/c07b804b-0bc1-4025-b5e6-11779400bf26" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Table 1 -->
+    <div class="content">
+        <div class="section-title">Comparison with SotA</div>
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Type</th>
+                <th>Rx</th>
+                <th>Ry</th>
+                <th>Rz</th>
+                <th>Rm</th>
+                <th>Tx</th>
+                <th>Ty</th>
+                <th>Tz</th>
+                <th>Tm</th>
+                <th>Runtime [ms]</th>
+                <th>Range</th>
+            </tr>
+            <tr>
+              <td><b><a href="https://arxiv.org/abs/1811.06849" target="_blank">CalibNet</a></b> </td>
+              <td>Iterative</td>
+              <td>0.1500</td>
+              <td>0.9000</td>
+              <td>0.1800</td>
+              <td><b>0.4100</b></td>
+              <td>4.200</td>
+              <td>1.600</td>
+              <td>7.220</td>
+              <td><b>4.340</b></td>
+              <td>44</td>
+              <td>±10°, ±0.20m</td>
+            </tr>
+            <tr>
+              <td><b><a href="CalibRCNN" target="_blank">CalibRCNN</a></b></td>
+              <td>Multi-frame</td>
+              <td>0.2100</td>
+              <td>2.2100</td>
+              <td>0.5000</td>
+              <td><b>0.9733</b></td>
+              <td>7.800</td>
+              <td>3.200</td>
+              <td>6.200</td>
+              <td><b>5.733</b></td>
+              <td>-</td>
+              <td>±10°, ±0.25m</td>
+            </tr>
+            <tr>
+              <td><b><a href="https://ieeexplore.ieee.org/document/9956145" target="_blank">CALNet</a></b></td>
+              <td>One-shot</td>
+              <td>0.1000</td>
+              <td>0.3800</td>
+              <td>0.1200</td>
+              <td><b>0.2000</b></td>
+              <td>3.650</td>
+              <td>1.630</td>
+              <td>3.800</td>
+              <td><b>3.030</b></td>
+              <td><b>21</b></td>
+              <td>±10°, ±0.25m</td>
+            </tr>
+            <tr>
+              <td><b><a href="https://arxiv.org/abs/2103.14793" target="_blank">CalibDNN</a></b></td>
+              <td>Iterative</td>
+              <td>0.1100</td>
+              <td>0.3500</td>
+              <td>0.1800</td>
+              <td><b>0.2100</b></td>
+              <td>3.800</td>
+              <td>1.800</td>
+              <td>9.600</td>
+              <td><b>5.070</b></td>
+              <td>-</td>
+              <td>±10°, ±0.25m</td>
+            </tr>
+            <tr>
+              <td><b><a href="https://ieeexplore.ieee.org/document/9810306" target="_blank">PSNet</a></b></td>
+              <td>One-shot</td>
+              <td><i>0.0600</i></td>
+              <td><b>0.2600</b></td>
+              <td><i>0.1200</i></td>
+              <td><b><i>0.1500</i></b></td>
+              <td>3.800</td>
+              <td>2.800</td>
+              <td>2.600</td>
+              <td><b>3.100</b></td>
+              <td>-</td>
+              <td>±10°, ±0.25m</td>
+            </tr>
+            <tr>
+              <td><b>CalibViT-V1</b></td>
+              <td>One-shot</td>
+              <td>0.0841</td>
+              <td>0.3319</td>
+              <td>0.1266</td>
+              <td><b>0.1809</b></td>
+              <td><i>2.815</i></td>
+              <td><b>0.983</b></td>
+              <td><i>2.497</i></td>
+              <td><b>2.0986</b></td>
+              <td>50</td>
+              <td>±10°, ±0.25m</td>
+            </tr>
+            <tr>
+              <td><b>CalibViT-V2</b></td>
+              <td>One-shot</td>
+              <td><b>0.0578</b></td>
+              <td><i>0.2698</i></td>
+              <td><b>0.0890</b></td>
+              <td><b>0.1389</b></td>
+              <td><b>2.247</b></td>
+              <td><i>1.019</i></td>
+              <td><b>2.323</b></td>
+              <td><b>1.863</b></td>
+              <td><i>35</i></td>
+              <td>±10°, ±0.25m</td>
+            </tr>
+            <!-- Add other rows as needed -->
+        </table>
+   
+    <!-- Table 2 -->
+   
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Type</th>
+                <th>Rx</th>
+                <th>Ry</th>
+                <th>Rz</th>
+                <th>Rm</th>
+                <th>Tx</th>
+                <th>Ty</th>
+                <th>Tz</th>
+                <th>Tm</th>
+                <th>Runtime [ms]</th>
+                <th>Range</th>
+            </tr>
+            <tr>
+                <td><b><a href="https://arxiv.org/abs/1707.03167" target="_blank">RegNet</a></b></td>
+                <td>Cascaded</td>
+                <td>0.2400</td>
+                <td>0.2500</td>
+                <td>0.3600</td>
+                <td><b>0.2833</b></td>
+                <td>7.000</td>
+                <td>7.000</td>
+                <td>4.000</td>
+                <td><b>6.000</b></td>
+                <td>90</td>
+                <td>±10°, ±0.25m</td>
+            </tr>
+            <tr>
+               <td><b><a href="https://arxiv.org/abs/2012.13901" target="_blank">LCCNet</a></b></td>
+               <td>Cascaded</td>
+               <td>0.3090</td>
+               <td>0.3300</td>
+               <td>0.3340</td>
+               <td><b>0.3200</b></td>
+               <td><b>1.267</b></td>
+               <td>2.212</td>
+               <td><b>1.107</b></td>
+               <td><b>1.528</b></td>
+               <td><b>18</b></td>
+               <td>±5°, ±0.50m</td>
+            </tr>
+            <tr>
+               <td><b>CalibViT-V1</b></td>
+               <td>One-shot</td>
+               <td><i>0.0971</i></td>
+               <td>0.3439</td>
+               <td><i>0.1599</i></td>
+               <td><b>0.2003</b></td>
+               <td>3.662</td>
+               <td><i>1.244</i></td>
+               <td>2.5219</td>
+               <td><b>2.4762</b></td>
+               <td>50</td>
+               <td>±5°, ±0.50m</td>
+            </tr>
+            <tr>
+               <td><b>CalibViT-V2</b></td>
+               <td>One-shot</td>
+               <td><b>0.0540</b></td>
+               <td><b>0.2500</b></td>
+               <td><b>0.0582</b></td>
+               <td><b>0.1207</b></td>
+               <td><i>2.476</i></td>
+               <td><b>0.938</b></td>
+               <td><i>2.019</i></td>
+               <td><b>1.8124</b></td>
+               <td><i>35</i></td>
+               <td>±5°, ±0.50m</td>
+            </tr>
+            <!-- Add other rows as needed -->
+        </table>
+    </div>
+
+    <!-- Note -->
+    <div class="content">
+        <!-- About Us Section -->
+            <div class="block-title" style="text-align: left;">Note</div>
+                <ul>
+                    <li>We create a benchmark for camera-LiDAR extrinsic calibration, aimed at standardizing performance evaluations across different methods.</li>
+                    <li>The published code can integrate all the models for calibration, enabling seamless evaluation using standard metrics.</li>
+                    <li>We are committed to developing tools that streamline calibration tasks for both researchers and industry professionals, improving the integration of camera and LiDAR systems.</li>
+                </ul>
+            </div>
+        </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        Calibration Benchmark © 2024
+    </div>
+
+ 
+</body>
+</html>
