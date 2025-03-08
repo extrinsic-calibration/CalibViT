@@ -66,6 +66,8 @@ workspace/
 ├── assets/
 ├── config/
 │   ├── model_config.json
+│   ├── data_config.json
+│   ├── config.py
 ├── dataloader/
 ├── datasets/
 │   ├── kitti/

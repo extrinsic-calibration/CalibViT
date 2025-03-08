@@ -129,7 +129,7 @@
         <!-- Note -->
             <div class="block-title" style="text-align: left;">Note for Reviewers</div>
                 <ul>
-                    <li>For CVPR'25 review purposes we provide an anonymized Github page. The last modification time stamp can be found <a href=https://github.com/extrinsic-calibration/CalibViT target="_blank"><u>here</u></a>.</li>
+                    <li>For ICCV'25 review purposes we provide an anonymized Github page. The code and last modification time stamp can be found <a href=https://github.com/extrinsic-calibration/CalibViT target="_blank"><u>here</u></a>.</li>
                 </ul>
             </div>
         </div>
@@ -140,7 +140,13 @@
         
         <!-- Abstract Section -->
         <div class="abstract">
-            <b>Abstract:</b> Sensor calibration for autonomous vehicles is commonly performed offline. However, continuous vibrations during operation lead to de-calibration, necessitating periodic correction. Transformer models, with their ability to capture long-range dependencies and global context, are particularly suited to capture long-range dependencies and global context from multi-modal data. We present CalibViT, an online calibration network that leverages the cross-attention mechanism to accurately and robustly estimate the extrinsic calibration matrix between the camera and LiDARs. We introduce two variants of our approach: CalibViT-v1, which employs a CNN backbone followed by a cross-attention block, and CalibViT-v2, which utilizes a Transformer backbone leveraging self-attention, followed by the cross-attention block. We evaluate our networks on NuScenes, KITTI Odometry, and TruckScenes datasets, demonstrating up to 7.4% improvement in rotation accuracy and 39.9% improvement in translation accuracy across diverse real-world scenarios.
+            <b>Abstract:</b> Multi-modal perception is widely used in autonomous driving.
+            A key challenge is accurate extrinsic sensor calibration across different modalities, such as RGB images and point clouds, which makes feature correspondence difficult to establish. 
+            Calibration is typically performed offline using markers, but over the operation of the vehicle, decalibration occurs and necessitates periodic correction. 
+            Although online learning-based calibration approaches have emerged as alternatives, they struggle with issues such as sparse feature maps and unreliable cross-modality associations. 
+            To address these challenges, we rely on transformer models, known for capturing long-range dependencies and global contexts.
+            We present a vision transformer-based approach, CalibViT, which improves the accuracy and reliability of LiDAR-camera calibration in dynamic environments. 
+            Our evaluation on the nuScenes, KITTI Odometry, and TruckScenes datasets, demonstrates up to 7.4% improvement in rotation accuracy and 39.9% improvement in translation accuracy.
         </div>
     
         <!-- Video Placeholder -->
